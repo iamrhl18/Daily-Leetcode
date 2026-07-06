@@ -17,23 +17,15 @@ class Solution {
     int max = Integer.MIN_VALUE;
     public int sum(TreeNode root){
         if(root==null) return 0;
-
-        int left = Math.max(0, sum(root.left));
-        int right = Math.max(0, sum(root.right));
-
-        max = Math.max(max, root.val + left + right);
-
-        return root.val + Math.max(left, right);
+        int left = Math.max(0,sum(root.left));
+        int right = Math.max(0,sum(root.right));
+        max = Math.max(max,root.val+left+right);
+        return root.val+Math.max(left,right);
     }
-    public void helper(TreeNode root){
-        if(root==null) return;
-        int sum = sum(root);
-        max = Math.max(max,sum);
-        helper(root.left);
-        helper(root.right);
-    }
+
+
     public int maxPathSum(TreeNode root) {
-        helper(root);
+        sum(root);
         return max;
     }
 }
