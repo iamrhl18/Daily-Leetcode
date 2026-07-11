@@ -15,7 +15,7 @@ class Solution {
         if(root==null) return maxwidth;
         Queue<Pair> q = new LinkedList<>();
         q.offer(new Pair(root,1,0));
-        TreeMap<Integer,int[]> map = new TreeMap<>();
+       
         int temp = 0;
         int prev = 1;
         while(!q.isEmpty()){
@@ -36,10 +36,6 @@ class Solution {
            
             if(node.left!=null) q.offer(new Pair(node.left,i*2,l+1));
             if(node.right!=null) q.offer(new Pair(node.right,(i*2)+1,l+1));
-        }
-        for(int[] arr : map.values()){
-            int width = arr[1] - arr[0] +1;
-            maxwidth = Math.max(width, maxwidth);
         }
         return maxwidth;
     }
