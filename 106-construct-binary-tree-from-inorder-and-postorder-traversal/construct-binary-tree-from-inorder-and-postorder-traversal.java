@@ -24,10 +24,8 @@ class Solution {
         int l = inorder.length;
         if(l==0) return null;
         if(l==1) return new TreeNode(postorder[l-1]);
-        TreeNode root = new TreeNode(postorder[l-1]);
-        int index = findindex(postorder[l-1],inorder);
-        root.left = buildTree(Arrays.copyOfRange(inorder,0,index) , Arrays.copyOfRange(postorder,0,index));
-        root.right = buildTree(Arrays.copyOfRange(inorder,index+1,l) , Arrays.copyOfRange(postorder,index,l-1));
-        return root;
+         int index = findindex(postorder[l-1],inorder);
+        return new TreeNode(postorder[l-1], buildTree(Arrays.copyOfRange(inorder,0,index) , Arrays.copyOfRange(postorder,0,index)),buildTree(Arrays.copyOfRange(inorder,index+1,l) , Arrays.copyOfRange(postorder,index,l-1)));
+
     }
 }
