@@ -1,16 +1,17 @@
 class Solution {
-    public void helper(int[][] image, int sr, int sc, int color,int present){
+    public void helper(int[][] image, int sr, int sc, int color,int present,int[] delrow , int[] delcol){
          int row = image.length;
         int col = image[0].length;
         if(sr<0 || sc<0 || sr>=row || sc>=col || image[sr][sc]!=present || image[sr][sc]==color) return;
         image[sr][sc]=color;
-        helper(image,sr,sc+1,color,present); // right 
-        helper(image,sr+1,sc,color,present);  // down 
-        helper(image,sr,sc-1,color,present); // left  
-        helper(image,sr-1,sc,color,present); // up 
+        for(int i=0;i<delrow.length;i++){
+            helper(image,sr+delrow[i],sc+delcol[i],color,present,delrow,delcol);
+        }
     }
     public int[][] floodFill(int[][] image, int sr, int sc, int color) {
-       helper(image,sr,sc,color,image[sr][sc]);
+        int[] delrow = {-1,0,1,0};
+        int[] delcol = {0,1,0,-1};
+       helper(image,sr,sc,color,image[sr][sc],delrow,delcol);
        return image;
     }
 }
