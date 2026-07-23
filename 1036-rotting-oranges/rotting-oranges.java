@@ -4,7 +4,7 @@ class Solution {
         int m = grid[0].length;
         Queue<int[]> q = new LinkedList<>();
         int fresh=0;
-        int[][] vis = new int[n][m];
+       
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
                 if(grid[i][j]==1){
@@ -13,7 +13,7 @@ class Solution {
                 } 
                 else if(grid[i][j]==2){
                     q.offer(new int[] {i,j,0});
-                    vis[i][j]=1;
+                    
                    
                 }
             }
@@ -30,10 +30,10 @@ class Solution {
             for(int i=0;i<delrow.length;i++){
                 int r = curr[0]+delrow[i];
                 int c = curr[1]+delcol[i];
-                if(r>=0 && r<n && c>=0 && c<m && grid[r][c]==1 && vis[r][c] == 0){
+                if(r>=0 && r<n && c>=0 && c<m && grid[r][c]==1 && grid[r][c] != 0){
                     q.offer(new int[] {r,c,curr[2]+1});
-                    vis[r][c] =1;
-                    grid[r][c]=2;
+                    
+                    grid[r][c]=0;
                     fresh--;
                  
                 }
