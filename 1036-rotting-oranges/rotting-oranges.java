@@ -30,10 +30,10 @@ class Solution {
             for(int i=0;i<delrow.length;i++){
                 int r = curr[0]+delrow[i];
                 int c = curr[1]+delcol[i];
-                if(r>=0 && r<n && c>=0 && c<m && grid[r][c]==1 && grid[r][c] != 0){
+                if(r>=0 && r<n && c>=0 && c<m && grid[r][c]==1){
                     q.offer(new int[] {r,c,curr[2]+1});
                     
-                    grid[r][c]=0;
+                    grid[r][c]=2;
                     fresh--;
                  
                 }
