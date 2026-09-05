@@ -11,9 +11,9 @@ class Solution {
 
         for(int i=0;i<nums.length;i++){
             max = Math.max(max,nums[i]);
-            int min = minele[i];
-            int diff = max - min;
-            if(diff<=k) return i;
+             
+             
+            if(Math.max(max,nums[i])-minele[i]<=k) return i;
         }
         return -1;
     }
