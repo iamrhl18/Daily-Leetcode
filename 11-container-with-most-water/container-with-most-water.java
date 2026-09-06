@@ -3,13 +3,23 @@ class Solution {
         int left =0;
         int right = height.length-1;
         int maxarea = 0;
+      
         while(left<right){
             int w = right - left;
-            int h = Math.min(height[left],height[right]);
-            int area = w*h;
+            int area = 0;
+            if(height[left]<height[right]){
+                int h = height[left];
+                 area = w*h;
+                left++;
+            }
+            else{
+                int  h = height[right];
+                area = w*h;
+                right--;
+            }
+            
             maxarea = Math.max(maxarea,area);
-            if(height[left]<height[right]) left++;
-            else right--;
+            
         }
         return maxarea;
     }
