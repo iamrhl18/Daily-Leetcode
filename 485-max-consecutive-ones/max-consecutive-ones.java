@@ -10,12 +10,13 @@ class Solution {
         int count =0;
         for(int ele:nums){
             if(ele ==1){
-                count++;
-                maxcount=Math.max(count , maxcount);
+                count++;    
             }else{
+                maxcount=Math.max(count , maxcount);
                 count =0;
             }
         }
+        maxcount=Math.max(count , maxcount);
         return maxcount;
     }
 }
