@@ -1,17 +1,17 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        int count =1;
-        int element = nums[0];
-        for(int i=1;i<nums.length;i++){
-            if(element == nums[i]) count++;
-            else{
-                count--;
-                if(count==0){
-                    element = nums[i];
-                    count=1;
-                }
-            }
+        HashMap<Integer,Integer> map = new HashMap<>();
+        // This map is used to store the element and their count
+
+        // let's count them
+
+        int threshold = nums.length/2;
+
+        for(int num:nums){
+            int newfreq = map.getOrDefault(num,0)+1;
+            map.put(num,newfreq);
+            if(newfreq>threshold) return num;
         }
-        return element;
+        return -1;
     }
 }
