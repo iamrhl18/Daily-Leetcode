@@ -24,6 +24,6 @@ class Solution {
                 else left++;
             }
         }
-        return new ArrayList<>(result);
+        return result;
     }
 }
