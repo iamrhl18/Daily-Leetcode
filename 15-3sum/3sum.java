@@ -13,8 +13,8 @@ class Solution {
                     result.add(new ArrayList(Arrays.asList(nums[i],nums[left],nums[right])));
                     left++;
                     right--;
-                    while(left<nums.length-2 && nums[left]==nums[left-1]) left++;
-                    while(right>=0 && nums[right]==nums[right+1]) right--;
+                    while(left<right && nums[left]==nums[left-1]) left++;
+                    while(left<right && nums[right]==nums[right+1]) right--;
                 }
                 else if(add<sum) left++;
                 else right--;
